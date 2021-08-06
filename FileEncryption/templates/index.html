@@ -1,0 +1,31 @@
+<html>
+<body>
+
+{% load static %}
+<form methoh="post" action="#">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" name="lname"><br><br>
+    </form>
+
+
+<form method="post" enctype="multipart/form-data" action = "{% url 'encrypt' %}">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <button type="submit">Encrypt</button>
+  </form>
+
+
+
+<form method="post" enctype="multipart/form-data" action = "{% url 'decrypt' %}">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <button type="submit">Decrypt</button>
+  </form>
+
+
+
+</form>
+</body>
+</html>
